@@ -1,0 +1,5 @@
+openai
+beautifulsoup4
+pypdf2
+groq
+anthropic
