@@ -14,7 +14,7 @@ The Veg-Box Meal Planner is a Python script designed to help you make the most o
 Before you begin, ensure you have met the following requirements:
 
 - Python 3.6 or later.
-- Libraries: `requests`, `io`, `re`, `argparse`, `asyncio`, `PyPDF2`, `BeautifulSoup`, `gepetto`.
+- Libraries: `requests`, `io`, `re`, `argparse`, `asyncio`, `PyPDF2`, `BeautifulSoup`.
 
 You can install the required libraries using pip:
 
