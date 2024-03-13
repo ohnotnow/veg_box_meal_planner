@@ -2,6 +2,7 @@ import requests
 import io
 import re
 import argparse
+import datetime
 import asyncio
 from gepetto import ollama, groq
 import PyPDF2
@@ -65,10 +66,11 @@ def get_ingredients(extracted_pdf_text, organic=True, box_type="ROOTS NO FRUITS"
 
 async def chat_with_bot(ingredients):
     # bot = ollama.OllamaModel()
+    date_info = f"Todays date is {datetime.datetime.now().strftime('%d/%m/%Y')} - please take the time of year into account when suggesting recipes. "
     bot = groq.GroqModel()
-    response = await bot.chat([{"role": "user", "content": f"{recipe_idea_prompt} {weights} <ingredients>{ingredients}</ingredients>"}])
+    response = await bot.chat([{"role": "user", "content": f"{recipe_idea_prompt} {date_info} {weights} <ingredients>{ingredients}</ingredients>"}])
     recipe_ideas = response.message
-    response = await bot.chat([{"role": "user", "content": f"{meal_plan_prompt} {weights} <ingredients>{ingredients}</ingredients>"}])
+    response = await bot.chat([{"role": "user", "content": f"{meal_plan_prompt} {date_info} {weights} <ingredients>{ingredients}</ingredients>"}])
     meal_plan = response.message
     return recipe_ideas, meal_plan
 
