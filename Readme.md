@@ -15,6 +15,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Python 3.6 or later.
 - Libraries: `requests`, `io`, `re`, `argparse`, `asyncio`, `PyPDF2`, `BeautifulSoup`.
+- An API Key for an AI model (eg, OpenAI, Groq, etc - groq is the default https://groq.com/)
 
 You can install the required libraries using pip:
 

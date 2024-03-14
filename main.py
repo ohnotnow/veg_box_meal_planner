@@ -20,6 +20,7 @@ I am a UK-based cook and have the following ingredients. Could you give me a wee
 weights = """
 Please use UK weights and measures and respond in markdown format!
 """
+date_info = f"Todays date is {datetime.datetime.now().strftime('%d/%m/%Y')} - please take the time of year into account when suggesting recipes. "
 
 def find_pdf_links(url):
     # use BeautifulSoup to extract all the links from the contents of the url that link to pdfs
@@ -66,7 +67,6 @@ def get_ingredients(extracted_pdf_text, organic=True, box_type="ROOTS NO FRUITS"
 
 async def chat_with_bot(ingredients):
     # bot = ollama.OllamaModel()
-    date_info = f"Todays date is {datetime.datetime.now().strftime('%d/%m/%Y')} - please take the time of year into account when suggesting recipes. "
     bot = groq.GroqModel()
     response = await bot.chat([{"role": "user", "content": f"{recipe_idea_prompt} {date_info} {weights} <ingredients>{ingredients}</ingredients>"}])
     recipe_ideas = response.message
